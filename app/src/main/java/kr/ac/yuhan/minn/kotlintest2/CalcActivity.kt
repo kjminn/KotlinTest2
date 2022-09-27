@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.Toast
 import kr.ac.yuhan.minn.kotlintest2.databinding.ActivityCalcBinding
 import kr.ac.yuhan.minn.kotlintest2.databinding.ActivityMainBinding
 import java.lang.String.format
@@ -33,8 +34,16 @@ class CalcActivity : AppCompatActivity() {
     val btnListener = View.OnClickListener{
         var eStr1 = b.edit1.text.toString()
         var eStr2 = b.edit2.text.toString()
+        if(eStr1=="" || eStr2==""){
+            Toast.makeText(baseContext, "입력하지 않고 버튼을 클릭하면 안됩니다.", Toast.LENGTH_LONG).show()
+            return@OnClickListener
+        }
         var num1 = eStr1.toDouble();
         var num2 = eStr2.toDouble();
+        if(num2==0.0){
+            Toast.makeText(baseContext, "0으로 나누면 안됩니다.", Toast.LENGTH_LONG).show()
+            return@OnClickListener
+        }
         var result = 0.0;
         when(it.id){
             R.id.btnPlus -> result = num1 + num2
