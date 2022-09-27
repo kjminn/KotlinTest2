@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import kr.ac.yuhan.minn.kotlintest2.databinding.ActivityMainBinding
+import java.lang.String.format
 import kotlin.math.pow
 
 class MainActivity : AppCompatActivity() {
@@ -21,6 +22,6 @@ class MainActivity : AppCompatActivity() {
         var weight:Double =binding.editWeight.text.toString().toDouble()
         var height:Double = binding.editHeight.text.toString().toDouble()
         var bmi:Double = weight / (height/100).pow(2)
-        binding.textResult.text = ""+bmi
+        binding.textResult.text = format("%.2f", bmi)
     }
 }
