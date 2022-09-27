@@ -6,6 +6,7 @@ import android.view.View
 import android.widget.Button
 import kr.ac.yuhan.minn.kotlintest2.databinding.ActivityCalcBinding
 import kr.ac.yuhan.minn.kotlintest2.databinding.ActivityMainBinding
+import java.lang.String.format
 
 class CalcActivity : AppCompatActivity() {
     val b by lazy {
@@ -32,9 +33,9 @@ class CalcActivity : AppCompatActivity() {
     val btnListener = View.OnClickListener{
         var eStr1 = b.edit1.text.toString()
         var eStr2 = b.edit2.text.toString()
-        var num1 = eStr1.toInt();
-        var num2 = eStr2.toInt();
-        var result = 0;
+        var num1 = eStr1.toDouble();
+        var num2 = eStr2.toDouble();
+        var result = 0.0;
         when(it.id){
             R.id.btnPlus -> result = num1 + num2
             R.id.btnMinus -> result = num1 - num2
@@ -42,6 +43,6 @@ class CalcActivity : AppCompatActivity() {
             R.id.btnDvide -> result = num1 / num2
         }
         b.textResult.setText(R.string.text_result)
-        b.textResult.append(result.toString())
+        b.textResult.append(format("%.2f", result))
     }
 }
