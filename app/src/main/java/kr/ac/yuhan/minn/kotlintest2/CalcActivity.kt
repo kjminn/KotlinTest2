@@ -15,11 +15,18 @@ class CalcActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(b.root)
         var btnArr = arrayOf<Button>(b.btnPlus, b.btnMinus, b.btnMulti, b.btnDvide)
+
         var i=0;
         for (btn in btnArr){
             btnArr[i++].setOnClickListener(btnListener)
         }
+/*
+        for(i in 0..btnArr.size){
+        }
 
+        for(i in 0..btnArr.size step 2){
+        }
+*/
     }
 
     val btnListener = View.OnClickListener{
